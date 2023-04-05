@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* New component styles can go here */
+    .bar-box {
+            @apply border-b border-neutral-300
+    }
+    .layout-bar-grid {
+        grid-template-columns: auto 1fr; 
+    }
+    .layout-subbar-grid {
+        grid-template-columns: 1fr auto;
+    }
+}
