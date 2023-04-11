@@ -1,5 +1,7 @@
 @tailwind base;
 @tailwind components;
+
+
 @tailwind utilities;
 
 @layer components {
@@ -13,4 +15,174 @@
     .layout-subbar-grid {
         grid-template-columns: 1fr auto;
     }
+
+        @layer base {
+    
+            .header-nav-item,
+            .open-cart-btn {
+                @apply h-full px-8 items-center flex relative uppercase font-bold bg-transparent border-0 cursor-pointer;
+            }
+    
+            .header-nav-item::before,
+            .open-cart-btn::before {
+                @apply bg-neutral-200 w-[2px] h-full max-h-full top-0 left-0 bottom-0 absolute;
+                content: '';
+                transform: skew(-20deg);
+    
+            }
+        }
+    
+        /* .app-fallback {
+            background-image: url(./assets/sports.png);
+        }
+     */
+        .bar-box {
+            @apply border-b border-neutral-300
+        }
+    
+        .layout-bar-grid {
+            grid-template-columns: auto 1fr;
+    
+        }
+    
+        .layout-subbar-grid {
+            grid-template-columns: 1fr auto;
+        }
+    
+        /* .layout-subbar-grid input{
+        grid-template-columns: 1fr auto;
+    } */
+    
+    
+    
+    
+        .cart-count-animation {
+            position: relative;
+    
+        }
+    
+        .cart-count-animation .count {
+            display: block;
+            position: relative;
+            transition: transform 0.4s ease-out;
+            backface-visibility: hidden;
+            @apply bg-red-600;
+            color: white;
+            border-radius: 50%;
+            padding: 0.5rem;
+            line-height: 2rem;
+            min-width: 3rem;
+            margin-left: 1rem;
+            font-feature-settings: 'tnum';
+            font-variant-numeric: tabular-nums;
+    
+        }
+    
+    
+        .cart-count-animation .count-enter {
+            transform: translateY(60px);
+        }
+    
+        .cart-count-animation .count-enter-active {
+            transform: translateY(0);
+        }
+    
+        .cart-count-animation .count-exit {
+            top: 0;
+            position: absolute;
+            transform: translateY(0);
+        }
+    
+        .cart-count-animation .count-exit-active {
+            transform: translateY(-20px);
+        }
+    
+        .cartQuantity-enter {
+            opacity: 0;
+            transform: rotate(0.5turn) translateY(-100px);
+            transform-origin: center;
+    
+        }
+    
+        .cartQuantity-enter-active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.4s ease-in-out;
+        }
+    
+        .cartQuantity-exit {
+            opacity: 1;
+        }
+    
+        .cartQuantity-exit-active {
+    
+            opacity: 0;
+            transform: rotate(0.5turn) translateY(-100px);
+            transition: all 0.4s ease-in-out;
+        }
+    
+    
+        h1 {
+            @apply text-4xl font-bold text-stone-600 mb-8;
+        }
+    
+        h2 {
+            @apply text-3xl font-bold text-stone-600 mb-8;
+        }
+    
+        /* h3 {
+        @apply text-2xl my-0 mx-8 text-center -mt-3 -skew-y-6;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    } */
+        h3 {
+            @apply text-2xl
+        }
+    
+    
+    
+        .buttonList {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+    
+        .cart {
+            grid-template-rows: auto 1fr auto;
+        }
+    
+        .cart-line {
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+        }
+    
+        .single-product {
+            grid-auto-columns: 1fr;
+            grid-auto-flow: column;
+            align-items: top;
+        }
+    
+        .line-product-details button {
+            margin: 0;
+        }
+    
+        .button {
+            @apply bg-stone-800 text-white py-3 px-5 text-sm w-48 m-0;
+        }
+    
+        .variant-option-box {
+            opacity: 0;
+    
+    
+        }
+    
+        /* .variant-option-label {
+        width: 120px;
+        height: 120px;
+        display: block;
+       
+        cursor: pointer;
+    } */
+    
+    
+        .product-selected img {
+            @apply border-red-400 border-4 sepia scale-100 border-spacing-6 shadow-red-500 transition-all;
+        }
 }
