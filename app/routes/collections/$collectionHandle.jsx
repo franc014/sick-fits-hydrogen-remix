@@ -1,5 +1,6 @@
 import {useLoaderData} from '@remix-run/react';
 import {json} from '@shopify/remix-oxygen';
+import {ProductCard} from '~/components/ProductCard';
 
 const COLLECTION_BY_HANDLE_QUERY = `#graphql
   query CollectionByHandleQuery($handle: String!) {
@@ -28,7 +29,6 @@ const COLLECTION_BY_HANDLE_QUERY = `#graphql
 `;
 
 export async function loader({context, params}) {
-  console.log(params);
   const {collection} = await context.storefront.query(
     COLLECTION_BY_HANDLE_QUERY,
     {
@@ -41,11 +41,18 @@ export async function loader({context, params}) {
 
 export default function Collection() {
   const {collection} = useLoaderData();
-  console.log('here', collection);
+  const products = collection.products.edges;
 
   return (
     <div>
       <h1>{collection.title}</h1>
+
+      <p>{collection.description}</p>
+      <div className="grid grid-cols-2 gap-14 my-12">
+        {products.map(({node}) => {
+          return <ProductCard key={node.id} product={node} />;
+        })}
+      </div>
     </div>
   );
 }
