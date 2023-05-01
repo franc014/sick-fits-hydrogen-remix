@@ -27,6 +27,6 @@ export async function loader({params, context}) {
   const {products} = await context.storefront.query(PAGINATED_PRODUCTS_QUERY, {
     variables: {cursor: params.cursor},
   });
-  //console.log(products);
+  //todo: Review server side routes to decide to format this response as a REST route
   return json({products});
 }
