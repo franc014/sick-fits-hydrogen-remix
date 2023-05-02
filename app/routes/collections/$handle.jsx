@@ -32,7 +32,7 @@ export async function loader({context, params}) {
   const {collection} = await context.storefront.query(
     COLLECTION_BY_HANDLE_QUERY,
     {
-      variables: {handle: params.collectionHandle},
+      variables: {handle: params.handle},
     },
   );
 
